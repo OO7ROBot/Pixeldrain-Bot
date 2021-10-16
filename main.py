@@ -21,7 +21,7 @@ Bot = Client(
 @Bot.on_message(filters.private & filters.command("start"))
 async def start(bot, update):
     await update.reply_text(
-        text=f"Hello {update.from_user.mention}, Please send a media for pixeldrain.com stream link.\n\nMade by @FayasNoushad",
+        text=f"Hello {update.from_user.mention}, Please send a media for pixeldrain.com stream link.\n\nMade with♥️by @MyTestBotZ",
         disable_web_page_preview=True,
         quote=True
     )
@@ -30,18 +30,18 @@ async def start(bot, update):
 @Bot.on_message(filters.private & filters.media)
 async def media_filter(bot, update):
     message = await update.reply_text(
-        text="`Processing...`",
+        text="__Processing...__ ⏳",
         quote=True,
         disable_web_page_preview=True
     )
     try:
         await message.edit_text(
-            text="`Downloading...`",
+            text="📥 __DownloadinG...__",
             disable_web_page_preview=True
         )
         media = await update.download()
         await message.edit_text(
-            text="`Uploading...`",
+            text="📤 __Uploading...__",
             disable_web_page_preview=True
         )
         response = pixeldrain.upload_file(media)
@@ -52,12 +52,12 @@ async def media_filter(bot, update):
         except:
             pass
         await message.edit_text(
-            text="`Uploaded Successfully!`",
+            text="✅ __Uploaded Successfully!__",
             disable_web_page_preview=True
         )
         if data["success"] is False:
             await message.edit_text(
-                text=f"**Error {status_code}:-** `I can't fetch information of your file.`",
+                text=f"**Error {status_code}:-** __I can't fetch information of your file.__",
                 disable_web_page_preview=True
             )
             return
@@ -89,7 +89,7 @@ async def media_filter(bot, update):
                 )
             ],
             [
-                InlineKeyboardButton(text="Join Updates Channel", url="https://telegram.me/FayasNoushad")
+                InlineKeyboardButton(text="Join & Support", url="https://telegram.me/MyTestBotZ")
             ]
         ]
     )
