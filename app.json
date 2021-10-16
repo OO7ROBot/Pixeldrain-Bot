@@ -1,0 +1,39 @@
+{
+    "name": "PixelDrainBot",
+    "description": "A telegram media to pixeldrain stream link bot",
+    "keywords": [
+        "Telegram",
+        "media",
+        "stream",
+        ""
+    ],
+    "repository": "https://github.com/OO7ROBot/Pixeldrain-Bot",
+    "website": "https://github.com/OO7ROBot/",
+    "success_url": "https://telegram.me/mytestbotz",
+    "env": {
+        "BOT_TOKEN": {
+            "description": "",
+            "required": "True"
+        },
+        "API_ID": {
+            "description": "",
+            "required": "True"
+        },
+        "API_HASH": {
+            "description": "",
+            "required": "True"
+        }
+    },
+    "stack": "heroku-20",
+    "buildpacks": [
+        {
+            "url": "heroku/python"
+        }
+    ],
+    "formation": {
+        "worker": {
+            "quantity": 1,
+            "size": "free"
+        }
+    }
+}
